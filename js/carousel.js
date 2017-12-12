@@ -96,5 +96,14 @@ Carousel.prototype.setBullet = function() {
   this.$bullet.removeClass('active').eq(this.index).addClass('active')
 }
 
+var carouselStart = (function(){
+  return {
+    init: function($cs) {
+      $cs.each(function(index, node) {
+        new Carousel($(node)).init()
+      })
+    }
+  }
+})()
 
-new Carousel($('.carousel').eq(0)).init()
+carouselStart.init($('.carousel'))

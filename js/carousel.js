@@ -11,6 +11,7 @@ function Carousel($cs) {
 }
 
 Carousel.prototype.init = function() {
+  var _this = this
   this.$first = this.$imgCon.first()
   this.$last = this.$imgCon.last()
   this.$imgCt.append(this.$first.clone())
@@ -21,6 +22,9 @@ Carousel.prototype.init = function() {
   })
   this.bind()
   this.bullet()
+  setInterval(function(){
+    _this.next(1)
+  }, 2000)
 }
 
 Carousel.prototype.bind = function() {
